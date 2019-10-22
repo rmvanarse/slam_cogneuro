@@ -16,3 +16,8 @@ Estimation of change in position using object tracking and a depth map
 * imageio?
 * pytorch
 
+## Running
+YOLO:
+```
+python3 yolo_opencv.py --image <image>.jpg --config yolov3.cfg --weights yolov3.weights --classes yolov3.txt
+```

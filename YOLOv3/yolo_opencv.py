@@ -1,14 +1,29 @@
-#############################################
-# Object detection - YOLO - OpenCV
-# Author : Arun Ponnusamy   (July 16, 2018)
-# Website : http://www.arunponnusamy.com
-############################################
+"""
+
+Topic:      Object detection plus localisation.
+
+Authors:    Akhil Tarikere, 
+            Rishikesh Vanarse, 
+            Pranav Guruprasad and
+            Sri Shreyas Sundaresan only.
+
+Date:       (October, 2019)
+
+"""
 
 
+# Imports.
 import cv2
 import argparse
 import numpy as np
 
+
+# Defining the constants.
+thresholdDistance = 500
+confidenceThreshold = 0.4
+
+
+# Taking two images and the other inputs.
 ap = argparse.ArgumentParser()
 ap.add_argument('-i1', '--image1', required=True,
                 help = 'path to input image1')
@@ -42,14 +57,18 @@ def draw_prediction(img, class_id, confidence, x, y, x_plus_w, y_plus_h):
 
     cv2.putText(img, label, (x-10,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
-    
+
+
+# Getting the images and storing them in the array.
 image1 = cv2.imread(args.image1)
 image2 = cv2.imread(args.image2)
 image = [image1, image2]
 
 listClasses = [[],[]]
 
+
 for i in range(len(image)):
+    # Finding the width and height for the images.
     Width = image[i].shape[1]
     Height = image[i].shape[0]
     # print(Width, Height)
@@ -82,7 +101,7 @@ for i in range(len(image)):
             scores = detection[5:]
             class_id = np.argmax(scores)
             confidence = scores[class_id]
-            if confidence > 0.4:
+            if confidence > confidenceThreshold:
                 center_x = int(detection[0] * Width)
                 center_y = int(detection[1] * Height)
                 w = int(detection[2] * Width)
@@ -107,12 +126,26 @@ for i in range(len(image)):
         h = box[3]
         draw_prediction(image[i], class_ids[j], confidences[j], round(x), round(y), round(x+w), round(y+h))
 
-    # cv2.imshow("object detection", image[i])
+    # cv2.imshow("object detection", image[i]) # To show the image with the classes.
     cv2.waitKey()
         
     cv2.imwrite("object-detection.jpg", image[i])
     cv2.destroyAllWindows()
     print('..')
-# print(boxes)
+
 
 print(listClasses)
+
+
+# To compare between the various classes in the two photos.
+# listClasses[0] = Photo-1, listClasses[1] = Photo-2.
+for sets1 in listClasses[0]:
+    for sets2 in listClasses[1]:
+        if sets1[2] == sets2[2]:
+            dist = np.sqrt((sets1[0]-sets2[0])**2 + (sets1[1]-sets2[1])**2)
+            if dist <= thresholdDistance:
+                # Get kinect z-axis to find the vector difference.
+                # Append the co-ordinates to a new list.
+                # Find the new position with respect to that object.
+                # Find the average position with respect all the objects.
+                print("Yaay2!", sets1, sets2)

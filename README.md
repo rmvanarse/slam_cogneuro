@@ -8,6 +8,7 @@ Estimation of change in position using object tracking and a depth map
 - [ ] Get Kinect data
 - [X] Vector equations for position change
 - [ ] Scale factor for the vector subtraction
+- [ ] Scale the depth from the dataset/kinect to a comprehensible value
 
 ## Dependencies:
 * opencv

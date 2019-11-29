@@ -190,6 +190,7 @@ for i in range(len(image)):
                 print("CenterX=", center_x, "CenterY=",  center_y, "ClassID=", objectNamesList[class_id])
                 listClasses[i].append([center_x, center_y, class_id, theta, phi])
 
+    #print (listClasses)
 
     indices = cv2.dnn.NMSBoxes(boxes, confidences, conf_threshold, nms_threshold)
 
@@ -275,11 +276,13 @@ for sets1 in listClasses[0]:
                 # y = r * sin(phi) * sin(theta)
                 # z = r * cos(phi)
 
+                print(sets1)
                 vector1['x'] = sets1[5] * np.sin(np.pi / 180. * sets1[4]) * np.cos(np.pi / 180. * sets1[3])
                 vector1['y'] = sets1[5] * np.sin(np.pi / 180. * sets1[4]) * np.sin(np.pi / 180. * sets1[3])
                 vector1['z'] = sets1[5] * np.cos(np.pi / 180. * sets1[4])
                 print('Initial Values: X=', vector1['x'], ', Y=', vector1['y'], ', Z=', vector1['z'])
 
+                print(sets2)
                 vector2['x'] = sets2[5] * np.sin(np.pi / 180. * sets2[4]) * np.cos(np.pi / 180. * sets2[3])
                 vector2['y'] = sets2[5] * np.sin(np.pi / 180. * sets2[4]) * np.sin(np.pi / 180. * sets2[3]) 
                 vector2['z'] = sets2[5] * np.cos(np.pi / 180. * sets2[4])

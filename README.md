@@ -18,11 +18,15 @@ Estimation of change in position using object tracking and a depth map
 ## Running
 YOLO (with two images as arguments):
 ```
-python3 yolo_opencv.py --image1 <image1>.jpg --image2 <image2>.jpg --depthImage1 <depth1>.pgm --depthImage2 <depth2>.pgm --config yolov3.cfg --weights yolov3.weights --classes yolov3.txt
+- python3 yolo_opencv.py --image1 <image1>.jpg --image2 <image2>.jpg --depthImage1 <depth1>.pgm --depthImage2 <depth2>.pgm --config yolov3.cfg --weights yolov3.weights --classes yolov3.txt
+
+- python3 yolo_opencv.py --image1 ../RGBD_img/Mul_exp1-1-rgb.png --image2 ../RGBD_img/Mul_exp1-2-rgb.png --depthImage1 ../RGBD_img/Mul_exp1-1-depth.png --depthImage2 ../RGBD_img/Mul_exp1-2-depth.png --config yolov3.cfg --weights yolov3.weights --classes yolov3.txt
 ```
 Example:
 ```
 python3 yolo_opencv.py --image1 r-1.ppm --image2 r-2.ppm --depthImage1 d-1.pgm --depthImage2 d-2.pgm --config yolov3.cfg --weights yolov3.weights --classes yolov3.txt
+
+
 ```
 
 ## Limitations

@@ -67,7 +67,7 @@ python3 yolo_opencv.py --image1 r-1.ppm --image2 r-2.ppm --depthImage1 d-1.pgm -
 
 ## Contributers
 
-**Rishikesh Vanarse** [rmvanarse](https://github.com/rmvanarse)
-**Akhil Tarikere** [Akter8](https://github.com/Akter8)
-**Srisreyas Sundaresan** [SriSreyas](https://github.com/SriSreyas)
-**Pranav Guruprasad**
+* **Rishikesh Vanarse** _(Github: [rmvanarse](https://github.com/rmvanarse) )_
+* **Akhil Tarikere** _(Github: [Akter8](https://github.com/Akter8) )_
+* **Srisreyas Sundaresan** _(Github: [SriSreyas](https://github.com/SriSreyas) )_
+* **Pranav Guruprasad**

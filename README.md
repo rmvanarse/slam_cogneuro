@@ -13,6 +13,7 @@ A Microsoft Kinect 360 is used. An RGB image is passed through YOLOv3 to detect 
 - darknet
 - ROS Kinetic _(For getting data from Kinect)_
 - freenect_stack
+- image_view
 - YOLOv3.weights
 
 ### Cloning
@@ -40,6 +41,19 @@ Save the yolov3.weights file in the YOLOv3 folder
 
 
 ## Running
+
+### Viewing RGB and Depth images
+
+Run the following commands in separate terminals after ROS setup is sourced.
+
+```roslaunch freenect_launch freenect.launch```
+
+```rosrun image_view image_view image:=/camera/rgb/image_color```
+
+```rosrun image_view disparity_view image:=/camera/depth/disparity```
+
+### Getting the displacement
+
 Run the following commands after enterong the YOLOv3 folder by ```cd YOLOv3```
 ```
 - python3 yolo_opencv.py --image1 <image1>.jpg --image2 <image2>.jpg --depthImage1 <depth1>.pgm --depthImage2 <depth2>.pgm --config yolov3.cfg --weights yolov3.weights --classes yolov3.txt

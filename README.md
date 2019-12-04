@@ -1,4 +1,4 @@
-# SLAM using object localization
+# Robot Localization using Object Detection
 Estimation of change in position using object tracking and a depth map.
 
 ### Description of Method
